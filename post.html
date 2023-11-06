@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Posts</title>
+
+    </head>
+
+    <body>
+
+        <style>
+
+            body{
+                background-color: black;
+            }
+            
+
+     .put{
+            /* background-color: rgba(47, 35, 35, 0.871); */
+        /* border: 2px solid white; */
+        }
+
+        #inp-box {
+            height: 150px;
+            width: 250px;
+            background-color: rgb(170, 170, 170);
+        text-align: start;
+        border: none;
+        margin-top: 20px;
+             /* margin-left: 250px; */
+
+        }
+
+        #inp-box:hover{
+            /* background-color: rgb(255, 246, 231); */
+            background-color: white;
+
+        }
+
+        #post {
+            height: 50px;
+            width: 70px;
+            background-color: #1877F2;
+            border: none;
+            cursor: pointer;
+            margin-left: 10px;
+            border-radius: 6px;
+            box-shadow: 3px 3px 2px rgb(192, 182, 182);
+        }
+
+        #post:hover{
+            /* background-color: 	#68666683; */
+            background-color: wheat;
+        }
+
+        #show {
+            /* background-color: #d62976; */
+        /* border: 2px solid white; */
+        width: 1000px;
+        /* margin-left: 100px; */
+        }
+
+.post-div{
+    
+    color: black;
+    height: 300px;
+    width: 50%;
+    margin-top: 20px;
+    margin-left: 200px;
+    background-color: #d62976;
+    font-size: 50px;
+    cursor: pointer;
+
+}
+
+.del-logo{
+    
+    color: rgb(255, 17, 17);
+    /* right: 0;    */
+ width: 40px;
+ height: 40px;
+    margin-left: 80px;
+     margin-top: -10px;
+    position: absolute;
+    cursor: pointer;
+    /* background-color: rgb(247, 255, 21); */
+    font-size: 70px;
+/* line-height: 40px; */
+}
+
+.del-logo:hover{
+    color: white;
+}
+
+h1{
+    color: white;
+    margin-top: -51px;
+    margin-left: 150px;
+
+}
+
+.container{
+    /* background-color: blue; */
+}
+
+.insta-logo{
+    width: 60px;
+    margin-top: 11px;
+    margin-left: 50px;
+
+    background-color: black;
+    /* position: fixed; */
+}
+
+</style>
+
+        <div class="container">
+            <img class="insta-logo" src="./images/insta-logo.jpg"
+                alt="Nothing Available">
+
+            <h1>Add Your Posts</h1>
+
+            <div class="post-app">
+
+                <div class="put">
+                    <input type="text" id="inp-box" name="inp"
+                        placeholder="Type what you want to post">
+                    <button id="post" onclick="addPost()">Post</button>
+                </div>
+
+                <div id="show">
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <script>
+
+const inpBox = document.getElementById("inp-box");
+const showDiv = document.getElementById("show");
+
+function addPost() {
+    if (inpBox.value === '' || inpBox.value == "  ") {
+alert("You must write something!")
+    }
+    else{
+        var div = document.createElement("div");
+        div.innerHTML= inpBox.value;
+        showDiv.appendChild(div).style.border="1px solid white";
+     console.log(div);
+        div.className += "post-div";
+
+
+const span = document.createElement("span")
+span.innerHTML = "\u00d7";
+div.appendChild(span);
+span.className += "del-logo";
+
+    }
+    inpBox.value=""
+saveData()
+}
+
+showDiv.addEventListener("click",function(e){
+    if (e.target.tagName === "DIV") {
+        e.target.classList.toggle("checked");
+        saveData()
+        }
+else if(e.target.tagName === "SPAN"){
+    e.target.parentElement.remove();
+    saveData()
+}
+})
+
+
+function saveData() {
+localStorage.setItem("data", showDiv.innerHTML);    
+}
+
+function showData() {
+    showDiv.innerHTML = localStorage.getItem("data");
+}
+showData()
+
+
+
+</script>
+
+    </body>
+
+</html>;

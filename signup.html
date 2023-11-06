@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign Up</title>
+
+    </head>
+
+    <body>
+
+        <style>
+
+        .insta-logo{
+            width: 68px;
+
+        }
+
+</style>
+
+        <div class="main">
+
+            <div class="A1">
+
+                <img class="insta-logo" src="./images/insta-logo.jpg"
+                    alt="Unable to catch Logo">
+
+                <h1>Sign Up</h1>
+
+            </div>
+
+            <div class="A2">
+
+                <label><input type="text" class="name" name="name"
+                        placeholder="Full Name"></label>
+
+                <br><br>
+
+                <label><input type="email" class="email-no"
+                        name="email or phone number"
+                        placeholder="Email or phone number"></label>
+
+                <br><br>
+
+                <label><input type="password" class="password" name="password"
+                        placeholder="Password"></label>
+                <br><br>
+
+                <label><input type="password" class="r-password"
+                        name="r-password" placeholder="Repeat Password"></label>
+
+                <br><br>
+
+                <button class="sign-in" onclick="swap()"> Sign In </button>
+
+                <h4> Already have an account
+                    <a href="./login.html">Log</a>
+                </h4>
+
+            </div>
+
+        </div>
+
+        <script>
+
+
+
+        function swap() {
+
+            var name = document.getElementsByClassName("name")[0].value;
+            var emailNo = document.getElementsByClassName("email-no")[0].value;
+            var password = document.getElementsByClassName("password")[0].value;
+            var rPassword = document.getElementsByClassName("r-password")[0].value;
+
+            if ( name && emailNo && password && rPassword ) {
+
+                if(password===rPassword){
+                window.location.assign("./login.html");
+                alert(name + "!" + " " + "Your account has been created")
+                console.log(name);
+                }
+
+                else{
+                alert("Your password and repeat password didn't matched");
+                console.log("Your password and repeat password didn't matched");
+            }
+
+                
+                // window.location.assign("./login.html");
+
+            }
+
+            else{
+                alert("Plz compelete all required fields");
+                console.log("Plz compelete all required fields");
+            }
+
+        }
+
+
+
+    </script>
+
+    </body>
+
+</html>

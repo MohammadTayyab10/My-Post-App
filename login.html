@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+
+
+
+</head>
+
+
+<body>
+
+
+    <div class="main">
+
+        <div class="A1">
+            
+            <img class="insta-logo" src="./images/insta-logo.jpg"
+            alt="Nothing Available">
+
+            <h1>Login</h1>
+
+        </div>
+
+        <div class="A2">
+
+            <label> <input class="email-no" type="email" name="email or phone number" placeholder="Email or phone number"> </label>
+
+            <br><br>
+
+            <label> <input class="password" type="password" name="password" placeholder="Password"> </label>
+
+            <br><br>
+
+
+            <button class="login" onclick=swap()> Log In </button>
+
+            <h4> Don't have an account
+                <a href="./signup.html">Sign Up</a>
+            </h4>
+
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+
+        function swap() {
+
+            // var name = document.getElementsByClassName("name")[0].value;
+            var emailNo = document.getElementsByClassName("email-no")[0].value;
+            var password = document.getElementsByClassName("password")[0].value;
+            // var rPassword = document.getElementsByClassName("r-password")[0].value;
+
+            if (emailNo && password) {
+
+                if (password) {
+                    window.location.assign("./post.html");
+                    alert("Welcome you are logged in")
+                    console.log(name);
+                }
+
+                else {
+                    alert("Your password and repeat password didn't matched");
+                    console.log("Your password and repeat password didn't matched");
+                }
+
+
+                // window.location.assign("./login.html");
+
+            }
+
+            else {
+                alert("Plz compelete all required fields");
+                console.log("Plz compelete all required fields");
+            }
+
+        }
+
+
+    </script>
+
+
+
+</body>
